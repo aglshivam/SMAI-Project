@@ -42,11 +42,6 @@ def noisy_patches(image):
 	
 	return (data)
 
-
-# creating a sparse coded signal
-# for documentaion 
-# visit http://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_sparse_coded_signal.html#sklearn.datasets.make_sparse_coded_signal
-
 def sparse_signal(noisy_data, n_coeffs, learning_ratio):
 	
 	n_samples, n_features = noisy_data.shape # p X n
@@ -79,11 +74,6 @@ def visualize_dict(V):
 	plt.show()
 
 def ksvd(noisy_data, D, alpha):
-	#def sparse_update():
-		#omp = OrthogonalMatchingPursuit()
-		
-		#omp.fit(D.T, noisy_data.T)
-		#return omp.coef_
 	#sparse_rep = sparse_update()
 	print(D.shape)
 	print('Updating Dictionary')
@@ -109,8 +99,6 @@ patches += np.mean(patches, axis=0)
 patches = patches.reshape(data.shape[0], *(7,7))
 reconstruction = reconstruct_from_patches_2d(patches, (image.shape[0]//2, image.shape[1]//2))
 cv2.imshow('reconstructed', reconstruction)
-
-
 
 cv2.imshow('orignal', image)
 
